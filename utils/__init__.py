@@ -1,3 +1,8 @@
 from . import (
-    basefuncs
+    basefuncs,
+    trajectoryClass,
+    uuid,
+    stopCollection,
+    googleRequests,
+    gravityModel
 )

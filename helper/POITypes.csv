@@ -1,0 +1,97 @@
+﻿POI Type,Activity
+accounting,Financial
+airport,Air Transport
+amusement_park,Leisure
+aquarium,Leisure
+art_gallery,Leisure
+atm,Financial
+bakery,Food
+bank,Financial
+bar,Food
+beauty_salon,Well Keeping
+bicycle_store,Vehicle Purchase
+book_store,Educational Supply
+bowling_alley,Entertainment
+bus_station,Daily Transport
+cafe,Food
+campground,Outdoor Leisure
+car_dealer,Vehicle Purchase
+car_rental,Vehicle Purchase
+car_repair,Vehicle Repair
+car_wash,Vehicle Wash
+casino,Gambling
+cemetery,Death Services
+church,Religious
+city_hall,Public Place
+clothing_store,Shopping
+convenience_store,Daily Shopping
+courthouse,Public Place
+dentist,Health
+department_store,Daily Shopping
+doctor,Health
+drugstore,Health Supplies
+electrician,Maintenance Services
+electronics_store,Maintenance Supplies
+embassy,Public Place
+fire_station,Public Services
+florist,Daily Shopping
+funeral_home,Death Services
+furniture_store,Shopping
+gas_station,Refuelling
+gym,Well Keeping
+hair_care,Well Keeping
+hardware_store,Maintenance Supplies
+hindu_temple,Religious
+home_goods_store,Daily Shopping
+hospital,Health
+insurance_agency,Financial
+jewelry_store,Shopping
+laundry,Daily Services
+lawyer,Advisory
+library,Education
+light_rail_station,Daily Transport
+liquor_store,Daily Shopping
+local_government_office,Public Place
+locksmith,Maintenance Supplies
+lodging,Other
+meal_delivery,Food
+meal_takeaway,Food
+mosque,Religious
+movie_rental,Entertainment
+movie_theater,Entertainment
+moving_company,Other
+museum,Public Place
+night_club,Entertainment
+painter,Other
+park,Outdoor Leisure
+parking,Parking Areas
+pet_store,Other
+pharmacy,Health Supplies
+physiotherapist,Health
+plumber,Maintenance Services
+police,Public Services
+post_office,Public Place
+primary_school,Education
+real_estate_agency,Other
+restaurant,Food
+roofing_contractor,Maintenance Services
+rv_park,Outdoor Leisure
+school,Education
+secondary_school,Education
+shoe_store,Shopping
+shopping_mall,Shopping/Daily Shopping
+spa,Well Keeping
+stadium,Public Place
+storage,Other
+subway_station,Daily Transport
+supermarket,Daily Shopping
+synagogue,Religious
+taxi_stand,Daily Transport
+tourist_attraction,Tourist
+train_station,Daily Transport
+transit_station,Daily Transport
+travel_agency,Other
+university,Education
+veterinary_care,Other
+zoo,Leisure
+food,Food
