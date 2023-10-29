@@ -99,6 +99,8 @@ class UUIDCollection:
 
         
         self.uuid_collection = self._process_trajectory(self.uuid_trajectory_objects,self.query_amount)
+        self.complete_traj_stop_df = self._concatenate_uuids_to_one_df(self.uuid_collection)
+        
         
 
     def _collect_uuids(self,data,required_cols):
@@ -135,6 +137,7 @@ class UUIDCollection:
             sampled_uuids = self._sample_uuids(query_amount)
 
         uuid_dict = {}
+        print("Starting to Get Stop Points for Every UUID")
         if sampled_uuids:
             for k in sampled_uuids:
                 #Put the trajectory for each UUID
@@ -149,5 +152,17 @@ class UUIDCollection:
                 uuid_obj = UUID(k,trajectory,self.plot_map)
                 uuid_obj.process_trajectory(self.min_duration,self.max_diameter)
                 uuid_dict[k] = uuid_obj
-
+        print("Finished Getting Stop Points for Every UUID")
         return uuid_dict
+    def _concatenate_uuids_to_one_df(self,uuid_collection:dict):
+        #This df will contain gpsacc,Stop Or Moving,geometry,UUID
+        df_list = []
+        for uuid,uuid_obj in uuid_collection.items():
+            full_trajectory = uuid_obj.parent_trajectory_with_stop_labels #this is also a dictionary containing the daily trajectory
+            for date,traj_df in full_trajectory.items():
+                traj_df = traj_df.reset_index()
+                traj_df[self.unique_col] = [uuid]*traj_df.shape[0]
+                df_list.append(traj_df)
+        concat_df = pd.concat(df_list,axis = 0)
+        concat_df = concat_df.reset_index(drop = True)
+        return concat_df

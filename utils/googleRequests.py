@@ -10,7 +10,7 @@ from pandas import Timestamp
 
 class googleRequests:
     def __init__(self,serviceURL = None,APIKey = None):
-        FILENAME = str(Timestamp(datetime.now()).strftime(format = "%Y-%M-%d %H-%M-%S")) + "-GoogleRequests.log"
+        FILENAME = str(Timestamp(datetime.now()).strftime(format = "%Y-%m-%d %H-%M-%S")) + "-GoogleRequests.log"
         logging.basicConfig(filename=Path('logs',FILENAME).resolve(), level=logging.DEBUG)
         if serviceURL:
             self.serviceURL = serviceURL

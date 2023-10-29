@@ -1,4 +1,7 @@
 Configs.xlsx
 stopcollection.pickle
 uuidcollection.pickle
+activitymapper_obj.pickle
+poigdf_obj.pickle
+gravitymodel.pickle
 logs/

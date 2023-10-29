@@ -34,6 +34,8 @@ class stopCollection:
             for date,stop_points in data[uuid].mpd_stop_points.items():
                 #remove the stop_points which are of the same lat_long
                 if stop_points.shape[0] > 0:
+                    #add in uuid
+                    stop_points[self.uuids.unique_col] = [uuid]*stop_points.shape[0]
                     stops_list.append(stop_points)
         
         stops_gdf = pd.concat(stops_list,axis = 0)
@@ -79,7 +81,9 @@ class stopCollection:
         if len(all_points) <= self.stop_point_num:
             filtered_stops = stops_gdf
         else:
+            print("Starting to Filter points based on minimum distance between points")
             filtered_idx = self._distance_calculation(all_points)
+            print("Finished obtaining points based on minimum distance")
             filtered_stops = stops_gdf.iloc[filtered_idx,:]
 
         # distance_matrix = self._distance_calculation(all_points)
@@ -96,13 +100,14 @@ class placeOfInterest:
     
 
 class stopPoint:
-    def __init__(self,radius,geometry:Point,start_time,end_time,duration_s,**kwargs):
+    def __init__(self,radius,geometry:Point,start_time,end_time,duration_s,uuid,**kwargs):
         self.radius = radius
         self.lat = geometry.y
         self.long = geometry.x
         self.start_time = start_time
         self.end_time = end_time
         self.time_duration = duration_s
+        self.uuid = uuid
         self.vicinity_locations = [] #Holds placeOfInterest Data
 
     def extractVicinityData(self,googleRequestsObject:googleRequests):
@@ -137,6 +142,7 @@ class ExtractAndOrganizeData:
     def __organizeData(self):
         #creates a pandas dataframe of the data
         df_dict = {'Stop Point' : [],
+                   'UUID' : [],
                    'POI Point' : [],
                    'POI Name' : [],
                    'POI Type': [],
@@ -145,6 +151,7 @@ class ExtractAndOrganizeData:
             if len(point.vicinity_locations) > 0:
                 for poi in point.vicinity_locations:
                     df_dict['Stop Point'].append(Point([point.long,point.lat]))
+                    df_dict['UUID'].append(point.uuid)
                     df_dict['POI Point'].append(Point([poi.longitude,poi.latitude]))
                     df_dict['POI Name'].append(poi.name)
                     df_dict['POI Type'].append(poi.placeType)

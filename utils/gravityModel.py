@@ -9,6 +9,7 @@ from scipy.spatial.distance import cdist
 
 class POIgdf:
     def __init__(self,poi_gdf:GeoDataFrame,
+                 id_col,
                  poi_type_col_name,
                  activity_type_col_name,
                  poi_point_col_name,
@@ -18,7 +19,7 @@ class POIgdf:
                  stop_point_col_name = None):
         
         #POI GeoDataFrame can have the Split Point split into lat and long or be sent in as shapely Point
-        
+        self.id_col = id_col
         self.split_stop_point = split_stop_point
         if self.split_stop_point == True:
             assert stop_point_lat != None,"stop_point_lat is required if split_stop_point is True"
@@ -85,12 +86,15 @@ class gravityModel:
 
         self.counts_df = self.__getActivityCounts()
         self.distance_df = self.__closestDistanceToPOI()
-    def calculate_probability(self,method = 'newton_gravity'):
+    def calculate_probability(self,method = 'newton_gravity',normalize:bool = True):
         if method == 'newton_gravity':
             results = self.__calculate_activity_probability_original(self.counts_df,self.distance_df)
+        
+        if normalize:
+            results = self.__normalize(results)
         return results
     def __obtainActivityDict(self):
-        cols = [self.poi_gdf.stop_point_col_name]
+        cols = [self.poi_gdf.stop_point_col_name,self.poi_gdf.id_col]
         cols.extend(list(set(self.activityMapper.activity_types)))
         activity_df_dict = {k:[] for k in cols}
         return activity_df_dict
@@ -99,9 +103,9 @@ class gravityModel:
         gdf = self.poi_gdf.poi_gdf.copy()
         activity_df_dict = self.__obtainActivityDict()
 
-        for k,grp in gdf.groupby([self.poi_gdf.stop_point_lat,self.poi_gdf.stop_point_long]):
-
-            activity_df_dict[self.poi_gdf.stop_point_col_name].append(Point(k[1],k[0]))
+        for k,grp in gdf.groupby([self.poi_gdf.id_col,self.poi_gdf.stop_point_lat,self.poi_gdf.stop_point_long]):
+            activity_df_dict[self.poi_gdf.id_col].append(k[0])
+            activity_df_dict[self.poi_gdf.stop_point_col_name].append(Point(k[2],k[1]))
             activity_list = map(lambda x: literal_eval(x),grp[self.poi_gdf.activity_type_col_name])
             flat_activity_list = [activity for sublist in activity_list for activity in sublist]
 
@@ -130,8 +134,9 @@ class gravityModel:
         activity_types = pd.Series(self.activityMapper.activity_types).unique().tolist()
         #list(set(self.activityMapper.activity_types))
 
-        for k,grp in gdf.groupby([self.poi_gdf.stop_point_lat,self.poi_gdf.stop_point_long]):
-            activity_df_dict[self.poi_gdf.stop_point_col_name].append(Point(k[1],k[0])) #Adding Long Lat
+        for k,grp in gdf.groupby([self.poi_gdf.id_col,self.poi_gdf.stop_point_lat,self.poi_gdf.stop_point_long]):
+            activity_df_dict[self.poi_gdf.id_col].append(k[0])
+            activity_df_dict[self.poi_gdf.stop_point_col_name].append(Point(k[2],k[1])) #Adding Long Lat
             for activity in activity_types:
                 points_list = []
                 for record in grp.to_dict(orient = 'records'):
@@ -141,7 +146,7 @@ class gravityModel:
                 if len(points_list) >= 1:
                     #Checks if any of the POIs sorrounding the Stop Point are having the activity of interest
                     #Adding Lat Long
-                    ref_point = np.array([(k[0],k[1])])
+                    ref_point = np.array([(k[1],k[2])])
                     poi_points = np.array(points_list)
                     min_distance = self.__distanceCalculation(ref_point,poi_points)
                     activity_df_dict[activity].append(min_distance)
@@ -152,14 +157,19 @@ class gravityModel:
     def __calculate_activity_probability_original(self,counts_df:GeoDataFrame,distance_df:GeoDataFrame):
         #turn to numpy arrays and get only the activiy columns
 
-        counts = counts_df.to_numpy()[:,1:]
-        distances = distance_df.to_numpy()[:,1:]
+        counts = counts_df.to_numpy()[:,2:]
+        distances = distance_df.to_numpy()[:,2:]
         distances_squared = distances**2
         probability = counts/distances_squared
         result_df = self.counts_df.copy()
-        result_df.iloc[:,1:] = probability
+        result_df.iloc[:,2:] = probability
         return result_df
-
+    def __normalize(self,result_df):
+        activity_cols = [i for i in result_df.columns if i not in [self.poi_gdf.id_col,self.poi_gdf.stop_point_col_name]]
+        result_array = result_df[activity_cols].to_numpy()
+        result_sum = np.sum(result_array,axis = 1).reshape((result_array.shape[0],1))
+        result_df[activity_cols] = 100*(result_array/result_sum)
+        return result_df
 
 
     
