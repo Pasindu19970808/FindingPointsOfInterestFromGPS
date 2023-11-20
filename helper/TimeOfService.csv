@@ -1,0 +1,97 @@
+﻿POI Type,Activity,Opening,Closing
+accounting,Financial,9:00:00 AM,17:00:00 PM
+airport,Air Transport,0:00:00 AM,23:59:59 PM
+amusement_park,Leisure,9:00:00 AM,20:00:00 PM
+aquarium,Leisure,9:00:00 AM,20:00:00 PM
+art_gallery,Leisure,9:00:00 AM,20:00:00 PM
+atm,Financial,0:00:00 AM,23:59:59 PM
+bakery,Food,7:00:00 AM,20:00:00 PM
+bank,Financial,9:00:00 AM,17:00:00 PM
+bar,Food,7:00:00 AM,22:00:00 PM
+beauty_salon,Well Keeping,9:00:00 AM,21:00:00 PM
+bicycle_store,Vehicle Purchase,9:00:00 AM,17:00:00 PM
+book_store,Educational Supply,9:00:00 AM,19:00:00 PM
+bowling_alley,Entertainment,9:00:00 AM,21:00:00 PM
+bus_station,Bus Station,0:00:00 AM,23:59:59 PM
+cafe,Food,7:00:00 AM,21:00:00 PM
+campground,Outdoor Leisure,9:00:00 AM,19:00:00 PM
+car_dealer,Vehicle Purchase,9:00:00 AM,17:00:00 PM
+car_rental,Vehicle Purchase,9:00:00 AM,17:00:00 PM
+car_repair,Vehicle Repair,9:00:00 AM,17:00:00 PM
+car_wash,Vehicle Wash,9:00:00 AM,17:00:00 PM
+casino,Gambling,9:00:00 AM,22:00:00 PM
+cemetery,Death Services,0:00:00 AM,23:59:59 PM
+church,Religious,9:00:00 AM,18:00:00 PM
+city_hall,Public Place,9:00:00 AM,17:00:00 PM
+clothing_store,Shopping,9:00:00 AM,21:00:00 PM
+convenience_store,Daily Shopping,0:00:00 AM,23:59:59 PM
+courthouse,Public Place,9:00:00 AM,17:00:00 PM
+dentist,Health,9:00:00 AM,17:00:00 PM
+department_store,Daily Shopping,9:00:00 AM,21:00:00 PM
+doctor,Health,9:00:00 AM,17:00:00 PM
+drugstore,Health Supplies,9:00:00 AM,19:00:00 PM
+electrician,Maintenance Services,9:00:00 AM,18:00:00 PM
+electronics_store,Maintenance Services,9:00:00 AM,18:00:00 PM
+embassy,Public Place,9:00:00 AM,16:00:00 PM
+fire_station,Public Services,0:00:00 AM,23:59:59 PM
+florist,Daily Shopping,9:00:00 AM,19:00:00 PM
+funeral_home,Death Services,9:00:00 AM,19:00:00 PM
+furniture_store,Shopping,9:00:00 AM,19:00:00 PM
+gas_station,Refuelling,0:00:00 AM,23:59:59 PM
+gym,Well Keeping,6:00:00 AM,23:59:59 PM
+hair_care,Well Keeping,9:00:00 AM,21:00:00 PM
+hardware_store,Maintenance Services,9:00:00 AM,19:00:00 PM
+hindu_temple,Religious,9:00:00 AM,18:00:00 PM
+home_goods_store,Daily Shopping,9:00:00 AM,21:00:00 PM
+hospital,Health,0:00:00 AM,23:59:59 PM
+insurance_agency,Financial,9:00:00 AM,17:00:00 PM
+jewelry_store,Shopping,9:00:00 AM,18:00:00 PM
+laundry,Daily Services,9:00:00 AM,18:00:00 PM
+lawyer,Advisory,9:00:00 AM,17:00:00 PM
+library,Library,9:00:00 AM,18:00:00 PM
+light_rail_station,MTR Station,0:00:00 AM,23:59:59 PM
+liquor_store,Daily Shopping,9:00:00 AM,21:00:00 PM
+local_government_office,Public Place,9:00:00 AM,17:00:00 PM
+locksmith,Maintenance Services,9:00:00 AM,17:00:00 PM
+lodging,Other,0:00:00 AM,23:59:59 PM
+meal_delivery,Food,7:00:00 AM,21:00:00 PM
+meal_takeaway,Food,7:00:00 AM,21:00:00 PM
+mosque,Religious,9:00:00 AM,18:00:00 PM
+movie_rental,Entertainment,9:00:00 AM,21:00:00 PM
+movie_theater,Entertainment,10:00:00 AM,11:00:00 PM
+moving_company,Other,9:00:00 AM,17:00:00 PM
+museum,Public Place,9:00:00 AM,17:00:00 PM
+night_club,Entertainment,18:00:00 PM,6:00:00 AM
+painter,Other,9:00:00 AM,17:00:00 PM
+park,Outdoor Leisure,6:00:00 AM,20:00:00 PM
+parking,Parking Areas,0:00:00 AM,23:59:59 PM
+pet_store,Other,9:00:00 AM,18:00:00 PM
+pharmacy,Health Supplies,9:00:00 AM,21:00:00 PM
+physiotherapist,Health,9:00:00 AM,18:00:00 PM
+plumber,Maintenance Services,9:00:00 AM,17:00:00 PM
+police,Public Services,0:00:00 AM,23:59:59 PM
+post_office,Public Place,9:00:00 AM,17:00:00 PM
+primary_school,School,9:00:00 AM,13:00:00 PM
+real_estate_agency,Other,9:00:00 AM,17:00:00 PM
+restaurant,Food,7:00:00 AM,21:00:00 PM
+roofing_contractor,Maintenance Services,9:00:00 AM,17:00:00 PM
+rv_park,Outdoor Leisure,0:00:00 AM,23:59:59 PM
+school,School,9:00:00 AM,15:00:00 PM
+secondary_school,School,9:00:00 AM,15:00:00 PM
+shoe_store,Shopping,9:00:00 AM,19:00:00 PM
+shopping_mall,Shopping/Daily Shopping,9:00:00 AM,21:00:00 PM
+spa,Well Keeping,9:00:00 AM,21:00:00 PM
+stadium,Public Place,9:00:00 AM,21:00:00 PM
+storage,Other,9:00:00 AM,21:00:00 PM
+subway_station,MTR Station,0:00:00 AM,23:59:59 PM
+supermarket,Daily Shopping,9:00:00 AM,22:00:00 PM
+synagogue,Religious,9:00:00 AM,17:00:00 PM
+taxi_stand,Taxi Stand,0:00:00 AM,23:59:59 PM
+tourist_attraction,Tourist,0:00:00 AM,23:59:59 PM
+train_station,MTR Station,0:00:00 AM,23:59:59 PM
+transit_station,Daily Transport,0:00:00 AM,23:59:59 PM
+travel_agency,Other,9:00:00 AM,17:00:00 PM
+university,University,7:00:00 AM,21:00:00 PM
+veterinary_care,Other,9:00:00 AM,17:00:00 PM
+zoo,Leisure,9:00:00 AM,17:00:00 PM
+food,Food,7:00:00 AM,22:00:00 PM

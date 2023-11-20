@@ -97,6 +97,7 @@ class placeOfInterest:
         self.longitude = None
         self.placeType = None
         self.name = None
+        self.place_id = None
     
 
 class stopPoint:
@@ -123,6 +124,7 @@ class stopPoint:
             place.longitude = details['geometry']['location']['lng']
             place.placeType = str(details['types'])
             place.name = details['name']
+            place.place_id = details['place_id']
             self.vicinity_locations.append(place)
 
 class ExtractAndOrganizeData:

@@ -81,7 +81,7 @@ def makeFoliumMap(trajectory):
         if x['Stop Or Moving'] == 'S':
             folium.CircleMarker(location = [lat,long],radius = 10,fill_color = 'red').add_to(map)
         else:
-            folium.CircleMarker(location = [lat,long],radius = 10,fill_color = 'blue').add_to(map)
+            folium.CircleMarker(location = [lat,long],radius = 10,fill_color = 'blue',).add_to(map)
     return map
 
 def plotTrajectoryWithStops(stop_time_ranges,trajectory,plot_map):

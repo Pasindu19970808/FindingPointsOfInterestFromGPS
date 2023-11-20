@@ -61,6 +61,7 @@ class UUIDCollection:
         sort_values_col : column to sort trajectories on
         lat_col : name of latitude containing column
         long_col : name of longitude containing column
+        max_diameter : maximum size of stop point
 
         """
         ### HEIRARCHY ###
